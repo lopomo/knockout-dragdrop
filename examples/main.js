@@ -146,6 +146,8 @@
         item.dragging(true);
     };
 
+    SortableView.prototype.drop = function (item) { };
+
     SortableView.prototype.dragEnd = function (item) {
         item.dragging(false);
     };

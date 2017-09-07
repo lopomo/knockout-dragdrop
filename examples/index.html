@@ -216,6 +216,10 @@
                     <ul data-bind="foreach: items">
                         <li data-bind="text: value,
                                        css: { dragging: dragging },
+                                       dropZone: {
+                                         accepts: 'sortable',
+                                         drop: $parent.drop
+                                       },
                                        dragZone: { name: 'sortable',
                                          dragStart: $parent.dragStart,
                                          dragEnd: $parent.dragEnd
@@ -238,14 +242,18 @@
                     <ul data-bind="foreach: items">
                         <li data-bind="text: value,
                                        css: { dragging: dragging },
+                                       dropZone: { 
+                                         accepts: 'scroll-while-dragging',
+                                         drop: $parent.drop
+                                       },
                                        dragZone: { name: 'scroll-while-dragging',
-                                       dragStart: $parent.dragStart,
-                                       dragEnd: $parent.dragEnd
+                                         dragStart: $parent.dragStart,
+                                         dragEnd: $parent.dragEnd
                                        },
                                        dragEvents: {
-                                       accepts: 'scroll-while-dragging',
-                                       dragOver: $parent.reorder,
-                                       data: { items: $parent.items, item: $data }
+                                         accepts: 'scroll-while-dragging',
+                                         dragOver: $parent.reorder,
+                                         data: { items: $parent.items, item: $data }
                                        }">
                         </li>
                     </ul>
